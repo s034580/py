@@ -19,9 +19,21 @@ users = [
 ]
 
 
-def getUserMedianAge(users):
-  pass
 
+import statistics
+
+def getUserMedianAge(users):
+  ages = [user['age'] for user in users]
+  median_age = statistics.median(ages)
+  return median_age
 
 def getOldestUser(users):
-  pass
+  sorted_users = sorted(users, key=lambda x: x['age'], reverse=True)
+  oldest_user = sorted_users[0]
+  return oldest_user['name']
+
+median_age = getUserMedianAge(users)
+print(f'Median age: {median_age}')
+
+oldest_user = getOldestUser(users)
+print(f'Oldest user: {oldest_user}')
