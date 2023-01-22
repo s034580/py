@@ -22,4 +22,13 @@
 
 
 def addFrame(canvas):
-  pass
+    if not canvas or all(not row for row in canvas):
+        raise ValueError("Error: empty canvas provided")
+    max_length = max(len(row) for row in canvas)
+    frame = "*" * (max_length + 2)
+    canvas = [frame] + ["*" + row + "*" for row in canvas] + [frame]
+    return "\n".join(canvas)
+
+canvas = ["abc", "ded"]
+canvas_with_frame = addFrame(canvas)
+print(canvas_with_frame)
