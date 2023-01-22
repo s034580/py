@@ -17,5 +17,13 @@ users = [
 ]
 
 
+
+
 def filterAdultDogOwers(users):
-  pass
+  adult_dog_owners = [user for user in users if user['age'] >= 18 and user['hasDog']]
+  
+  return adult_dog_owners
+
+
+filtered_users = filterAdultDogOwers(users)
+print(filtered_users)
